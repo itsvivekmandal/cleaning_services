@@ -1,17 +1,28 @@
 import { AppBar, Toolbar, Grid2, styled} from "@mui/material";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-const StyledLink = styled(Link)({
+const StyledLink = styled(NavLink)({
+  padding: "10px 15px",
+  borderRadius: "5px",
   fontSize: "18px",
   color: "black",
   fontWeight: "bold",
-  textDecoration: "none"
+  textDecoration: "none",
+  transition: "background-color 0.3s ease, color 0.3s ease",
+  "&:hover":{
+    backgroundColor: "blue",
+    color: "white"
+  },
+  "&.active": {
+    backgroundColor: "blue",
+    color: "white" 
+  }
 });
 
 const Header = () => {
   return (
-    <AppBar position="static" color="white">
+    <AppBar elevation={5} position="static" color="white" style={{marginBottom: "15px"}}>
       <Toolbar>
         <Grid2 container spacing={4} justifyContent={"center"} alignItems={"center"} style={{width: "100%"}}>
           <Grid2 size={{sx: 4, md: 2}}>
