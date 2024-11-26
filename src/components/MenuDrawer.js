@@ -1,10 +1,11 @@
-import { AppBar, Toolbar, Grid2, styled} from "@mui/material";
+import { Drawer, IconButton, Grid2, styled, Divider } from "@mui/material";
+import { Menu } from "@mui/icons-material";
+import { useState } from "react";
 import logo from "../assets/logo.png";
-import { Link, NavLink } from "react-router-dom";
-import MenuDrawer from './MenuDrawer';
+import { NavLink } from "react-router-dom";
 
 const StyledLink = styled(NavLink)({
-  padding: "10px 15px",
+  padding: "5px 10px",
   borderRadius: "5px",
   fontSize: "18px",
   color: "black",
@@ -21,28 +22,41 @@ const StyledLink = styled(NavLink)({
   }
 });
 
-const Header = () => {
+const MenuDrawer = () => {
+
+  const [drawer, setDrawer] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawer(!drawer);
+  }
+
   return (
-    <AppBar elevation={5} position="static" color="white" style={{marginBottom: "15px"}}>
-      <Toolbar>
-        <Grid2 container spacing={4} justifyContent={"center"} alignItems={"center"} style={{width: "100%"}}>
+    <>
+      <IconButton
+        onClick={toggleDrawer}
+      >
+        <Menu />
+      </IconButton>
+      <Drawer
+        open={drawer}
+        onClose={toggleDrawer}
+        sx={{'.MuiDrawer-paper': {width: "50%"}}}
+      >
+        <Grid2 container sx={{padding: "0px 15px"}}>
           <Grid2 size={{xs: 2, md: 2}}>
             <img src={logo} alt="logo" width="80" />
           </Grid2>
-          <Grid2 container size={{ md: 10}} sx={{display: {xs: "none", md: "flex"}}}>
+          <Divider width="100%" sx={{marginBottom: "10px"}} />
+          <Grid2 container spacing={2}>
             <Grid2><StyledLink to="/">Home</StyledLink></Grid2>
             <Grid2><StyledLink to="/services">Services</StyledLink></Grid2>
             <Grid2><StyledLink to="/about">About Us</StyledLink></Grid2>
             <Grid2><StyledLink to="/contact">Contact Us</StyledLink></Grid2>
           </Grid2>
-          <Grid2 conatiner justifyContent={"right"} size={{xs: 10}} sx={{display: {xs: "flex", md: "none"}}}>
-            <MenuDrawer />
-          </Grid2>
         </Grid2>
-      </Toolbar>
-    </AppBar>
+      </Drawer>
+    </>
   );
 };
 
-
-export default Header;
+export default MenuDrawer;
