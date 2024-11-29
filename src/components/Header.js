@@ -16,14 +16,14 @@ const StyledLink = styled(NavLink)({
     color: "white"
   },
   "&.active": {
-    backgroundColor: "blue",
+    backgroundColor: "#498B43",
     color: "white" 
   }
 });
 
 const Header = () => {
   return (
-    <AppBar elevation={5} position="static" color="white" style={{marginBottom: "15px"}}>
+    <AppBar elevation={10} position="sticky" sx={{bgcolor: "white"}}>
       <Toolbar>
         <Grid2 container spacing={4} justifyContent={"center"} alignItems={"center"} style={{width: "100%"}}>
           <Grid2 size={{xs: 2, md: 2}}>
