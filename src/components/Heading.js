@@ -5,11 +5,16 @@ const Heading = ({heading, color}) => {
     <Typography
       variant="h4"
       sx={{textDecoration: "underline", textDecorationColor: color, textUnderlineOffset: "10px"}}
-      padding={"15px 20px"}
+      padding={"25px"}
     >
       {heading}
     </Typography>
   );
+};
+
+Heading.defaultProps = {
+  heading: 'Your Heading',
+  color: '#498B43'
 };
 
 export default Heading;

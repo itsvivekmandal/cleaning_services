@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Grid2, styled} from "@mui/material";
-import logo from "../assets/logo.png";
+import logo from "../assets/new_logo.png";
 import { Link, NavLink } from "react-router-dom";
 import MenuDrawer from './MenuDrawer';
 
@@ -27,7 +27,7 @@ const Header = () => {
       <Toolbar>
         <Grid2 container spacing={4} justifyContent={"center"} alignItems={"center"} style={{width: "100%"}}>
           <Grid2 size={{xs: 2, md: 2}}>
-            <img src={logo} alt="logo" width="80" />
+            <img src={logo} alt="logo" width="100" />
           </Grid2>
           <Grid2 container size={{ md: 10}} sx={{display: {xs: "none", md: "flex"}}}>
             <Grid2><StyledLink to="/">Home</StyledLink></Grid2>

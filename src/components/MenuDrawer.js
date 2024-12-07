@@ -1,7 +1,7 @@
 import { Drawer, IconButton, Grid2, styled, Divider } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import { useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/new_logo.png";
 import { NavLink } from "react-router-dom";
 
 const StyledLink = styled(NavLink)({
@@ -44,7 +44,7 @@ const MenuDrawer = () => {
       >
         <Grid2 container sx={{padding: "0px 15px"}}>
           <Grid2 size={{xs: 2, md: 2}}>
-            <img src={logo} alt="logo" width="80" />
+            <img src={logo} alt="logo" width="100" />
           </Grid2>
           <Divider width="100%" sx={{marginBottom: "10px"}} />
           <Grid2 container spacing={2}>
