@@ -13,6 +13,8 @@ import eco from '../assets/eco.png';
 import satisfaction from '../assets/satisfaction.png';
 import trust from '../assets/trust.png';
 import { Link } from "react-router-dom";
+import profile from '../assets/profile.jpg';
+import stevejobs from '../assets/steve_jobs.jpg';
 
 const MyCarousel = () => {
   const items = [
@@ -166,12 +168,66 @@ const WhyChoose = () => {
   );
 };
 
+const testimonials = [
+  {
+    name: "Vivek Mandal",
+    designation: "Software Engineer",
+    review: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    profile: profile
+  },
+  {
+    name: "Steve Jobs",
+    designation: "Software Engineer 2",
+    review: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Test 2",
+    profile: stevejobs
+  },
+  {
+    name: "Vivek Mandal 2",
+    designation: "Software Engineer 3",
+    review: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Test 3",
+    profile: stevejobs
+  }
+];
+
+const Testimonials = () => {
+  return (
+    <Grid2 container justifyContent={"center"} alignItems={"center"} padding={"35px"}>
+      <Grid2 size={{xs: 12, md: 12}}>
+        <Heading heading="Testimonials" />
+      </Grid2>
+      <Grid2 size={{xs: 12, md: 8}}>
+        <Paper elevation={10}>
+          <Carousel indicators={false} interval={3000} animation="slide">
+            {
+              testimonials.map((testimonial, index) => (
+                <Grid2 key={index} container justifyContent={"center"} alignItems={"center"}>
+                  <Grid2 size={{xs: 12, md:4}} sx={{bgcolor: "#498B43"}} padding={"25px 15px"}>
+                    <img src={testimonial.profile} alt={testimonial.name} style={{width: "150px", borderRadius: "50%"}}/>
+                    <Typography variant="h5">{testimonial.name}</Typography>
+                    <Typography variant="body1" color={"text.secondary"}>{testimonial.designation}</Typography>
+                  </Grid2>
+                  <Grid2 size={{xs: 12, md:8}}>
+                    <Typography variant="body1" sx={{ fontSize: {xs: "1rem", md: "1.5rem"}}} padding={"25px 15px"}>
+                      {testimonial.review}
+                    </Typography>
+                  </Grid2>
+                </Grid2>
+              ))
+            }
+          </Carousel>
+        </Paper>
+      </Grid2>
+    </Grid2>
+  );
+};
+
 const Home = () => {
   return (
       <>
         <MyCarousel />
         <Services />
         <WhyChoose />
+        <Testimonials />
       </>
   );
 };
